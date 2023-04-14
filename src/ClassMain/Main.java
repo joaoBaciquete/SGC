@@ -5,10 +5,19 @@
  */
 package ClassMain;
 
+import View.Form.LoginForm;
+
 /**
  *
  * @author Lenovo T460
  */
 public class Main {
+      public static void main(String[] args) {
+
+ 
     
+    
+     LoginForm lf = new LoginForm() {}; 
+     lf.setVisible(true);
+      }
 }
