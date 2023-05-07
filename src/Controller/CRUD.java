@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controller.DAU;
+package Controller;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -11,13 +11,13 @@ import javax.persistence.Persistence;
 
 /**
  *
- * @author Lenovo T460
+ * @author trido
  */
-public class ConnexaoBaseDeDados {
+public class CRUD {
     EntityManagerFactory fatory;
     EntityManager con;
 
-    public ConnexaoBaseDeDados(){
+    public CRUD() {
         fatory=Persistence.createEntityManagerFactory("SistemPU");
         con=fatory.createEntityManager();
         
@@ -51,5 +51,5 @@ public class ConnexaoBaseDeDados {
           con.close();
       }return null;
   } 
+    
 }
-

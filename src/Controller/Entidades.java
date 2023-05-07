@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controller.DAU;
+package Controller;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
@@ -13,10 +13,10 @@ import javax.persistence.Id;
 
 /**
  *
- * @author Lenovo T460
+ * @author trido
  */
 @Entity
-public class Entidade implements Serializable {
+public class Entidades implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -41,10 +41,10 @@ public class Entidade implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Entidade)) {
+        if (!(object instanceof Entidades)) {
             return false;
         }
-        Entidade other = (Entidade) object;
+        Entidades other = (Entidades) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -53,7 +53,7 @@ public class Entidade implements Serializable {
 
     @Override
     public String toString() {
-        return "Controller.DAU.Entidade[ id=" + id + " ]";
+        return "Controller.Entidades[ id=" + id + " ]";
     }
     
 }

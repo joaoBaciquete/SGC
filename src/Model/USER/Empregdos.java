@@ -5,8 +5,8 @@
  */
 package Model.USER;
 
-import java.io.Serializable;
-import javax.persistence.Column;
+import java.time.LocalDateTime;
+import javafx.util.converter.LocalDateTimeStringConverter;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,25 +18,24 @@ import javax.persistence.Table;
  * @author Lenovo T460
  */
 @Entity
-@Table (name = "admin")
-public class Usuario implements Serializable{
+@Table
+public class Empregdos {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(name = "nome")
     private String nome;
-    @Column(name = "apelido")
     private String apelido;
-    @Column(name = "bi")
-    private String bI;
-    @Column(name = "endereco")
-    private String adress;
-    @Column(name = "perfil")
-    private String perfil;
-    
-    public Usuario() {
-    }
+    private String bi;
+    private int telefone;
+    private String data_nasc;
+    private String data;
 
+    public Empregdos() {
+        LocalDateTime date=LocalDateTime.now();
+        this.data=String.valueOf(date);
+    }
+   
+    
     public Long getId() {
         return id;
     }
@@ -61,35 +60,36 @@ public class Usuario implements Serializable{
         this.apelido = apelido;
     }
 
-    public String getbI() {
-        return bI;
+    public String getBi() {
+        return bi;
     }
 
-    public void setbI(String bI) {
-        this.bI = bI;
+    public void setBi(String bi) {
+        this.bi = bi;
     }
 
-    public String getAdress() {
-        return adress;
+    public int getTelefone() {
+        return telefone;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setTelefone(int telefone) {
+        this.telefone = telefone;
     }
 
-    public String getPerfil() {
-        return perfil;
+    public String getData_nasc() {
+        return data_nasc;
     }
 
-    public void setPerfil(String perfil) {
-        this.perfil = perfil;
+    public void setData_nasc(String data_nasc) {
+        this.data_nasc = data_nasc;
     }
 
-    @Override
-    public String toString() {
-        return "Usuario{" + "id=" + id + ", nome=" + nome + ", apelido=" + apelido + ", bI=" + bI + ", adress=" + adress + ", perfil=" + perfil + '}';
+    public String getData() {
+        return data;
     }
 
-   
+    public void setData(String data) {
+        this.data = data;
+    }
     
 }
