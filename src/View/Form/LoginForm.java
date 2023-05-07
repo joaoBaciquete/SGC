@@ -4,33 +4,38 @@
  * and open the template in the editor.
  */
 package View.Form;
-import java.awt.FlowLayout;
-import java.awt.Font;
+import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
 /**
  *
  * @author Lenovo T460
  */
-public abstract class LoginForm extends JFrame {
+public abstract class LoginForm extends JFrame implements ActionListener {
     
        JTextField txtUser = new JTextField("");
        JPasswordField PassSenha = new JPasswordField("");
-       JButton btn1 = new JButton("Sign in");
+       JButton btn1 = new JButton("Entrar");
        JButton btn2 = new JButton("Sair");
        JLabel lblUser = new JLabel("Usuario :");
        JLabel lblSenha = new JLabel("Senha :");
        JLabel lblLogin = new JLabel("TelaLogin");
        
     public LoginForm(){
+       setTitle("TelaLogin");
        setVisible(true);
        setSize(800,500);
        setLocationRelativeTo(null);
+       setDefaultCloseOperation(EXIT_ON_CLOSE);
+       
        
        setLayout(null); //set layout para podermos configurar o layout a vontade
        add(btn1);
        add(btn2);
        btn1.setBounds(290,300,100,50);
        btn1.setFont(new Font("Arial", Font.BOLD,20));
+       btn1.addActionListener(this);
+    
        btn2.setBounds(490,300,100,50);
        btn2.setFont(new Font("Arial", Font.BOLD,20));
        
@@ -54,5 +59,11 @@ public abstract class LoginForm extends JFrame {
        lblLogin.setFont(new Font("Arial", Font.BOLD,40));
        
     }
+
+    @Override
+    public void actionPerformed(ActionEvent ae) {
+       JOptionPane.showMessageDialog(null, "Logado com Sucesso");
+    }
+    
      
 }
