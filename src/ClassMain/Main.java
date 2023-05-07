@@ -6,6 +6,7 @@
 package ClassMain;
 
 import Controller.CRUD;
+import View.Form.PreRegisto;
 
 /**
  *
@@ -13,6 +14,6 @@ import Controller.CRUD;
  */
 public class Main {
       public static void main(String[] args) {
-          CRUD con=new CRUD();
+          new PreRegisto().show();
          
 }}
