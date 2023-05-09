@@ -5,21 +5,25 @@
  */
 package Controller;
 
+import Model.USER.Admin;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 /**
  *
  * @author trido
  */
 public class CRUD {
-    EntityManagerFactory fatory;
-    EntityManager con;
+    EntityManagerFactory fatory=Persistence.createEntityManagerFactory("SistemPU");
+    EntityManager con=fatory.createEntityManager();
+           
+        
+        
 
     public CRUD() {
-        fatory=Persistence.createEntityManagerFactory("SistemPU");
-        con=fatory.createEntityManager();
         
            
           
@@ -50,6 +54,13 @@ public class CRUD {
       }finally{
           con.close();
       }return null;
+      
   } 
+     public List<Admin> findAll() {
+         String path="select c from Admin c";
+        Query q = con.createQuery(path);
+       List<Admin> clients = q.getResultList();
+        return clients;
+    }
     
 }

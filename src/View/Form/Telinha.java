@@ -17,7 +17,7 @@ public class Telinha extends JPanel{
     
     public Telinha() {
         
-       this.setBackground(new Color(12,26,17));
+       this.setBackground(new Color(0,0,139));
       
     }
 

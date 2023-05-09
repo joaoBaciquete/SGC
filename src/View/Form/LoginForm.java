@@ -11,7 +11,7 @@ import javax.swing.*;
  *
  * @author Lenovo T460
  */
-public abstract class LoginForm extends JFrame implements ActionListener {
+public class LoginForm extends JFrame implements ActionListener {
     
        JTextField txtUser = new JTextField("");
        JPasswordField PassSenha = new JPasswordField("");

@@ -6,6 +6,8 @@
 package ClassMain;
 
 import Controller.CRUD;
+import Model.USER.Admin;
+import View.Form.MenuForm;
 import View.Form.PreRegisto;
 
 /**
@@ -14,6 +16,13 @@ import View.Form.PreRegisto;
  */
 public class Main {
       public static void main(String[] args) {
-          new PreRegisto().show();
+         new PreRegisto().show();
+          //new MenuForm().show();
+        //new FrmLongin().setVisible(true);
+         //new LoginForm().setVisible(true);
+         //CRUD cr=new CRUD();
+         //for(Admin ad:cr.findAll()){
+          //   System.out.println(ad.getNome());
+         //}
          
 }}

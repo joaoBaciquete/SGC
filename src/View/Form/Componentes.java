@@ -5,7 +5,9 @@
  */
 package View.Form;
 
+import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 /**
@@ -15,6 +17,17 @@ import javax.swing.JTextField;
 public class Componentes {
     private JLabel texto;
     private JTextField txt;
+    private JPasswordField ps;
+    private JButton bt;
+    private JLabel txtNome;
+
+    public JLabel getTxtNome() {
+        return txtNome;
+    }
+
+    public void setTxtNome(JLabel txtNome) {
+        this.txtNome = txtNome;
+    }
 
     public Componentes() {
         texto=new JLabel();
@@ -35,6 +48,22 @@ public class Componentes {
 
     public void setTxt(JTextField txt) {
         this.txt = txt;
+    }
+
+    public JPasswordField getPs() {
+        return ps;
+    }
+
+    public void setPs(JPasswordField ps) {
+        this.ps = ps;
+    }
+
+    public JButton getBt() {
+        return bt;
+    }
+
+    public void setBt(JButton bt) {
+        this.bt = bt;
     }
     
     

@@ -34,11 +34,11 @@ public class Admin implements Serializable{
     private String adress;
     @Column(name = "perfil")
     private String perfil;
-    @Column(name = "senha")// nao se usa ; para Persistencia de dados
-    private String senha;
+   
     @Column(name = "data")
     private String data;
-   
+    @Column(name = "senha")// nao se usa ; para Persistencia de dados
+    private String senha;
     
     public Admin() {
         LocalDateTime date=LocalDateTime.now();
@@ -110,8 +110,12 @@ public class Admin implements Serializable{
         this.data = data;
     }
 
-   
+    @Override
+    public String toString() {
+        return "Admin{" + "id=" + id + ", nome=" + nome + ", apelido=" + apelido + ", bI=" + bI + ", adress=" + adress + ", perfil=" + perfil + ", senha=" + senha + ", data=" + data + '}';
+    }
 
+   
     
     
 }
