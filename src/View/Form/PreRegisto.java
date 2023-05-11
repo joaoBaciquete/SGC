@@ -7,6 +7,7 @@ package View.Form;
 
 import Controller.CRUD;
 import Model.USER.Admin;
+
 import java.awt.Color;
 import java.awt.Font;
 import static java.awt.Font.PLAIN;
@@ -87,35 +88,46 @@ public final class PreRegisto extends JFrame implements ActionListener{
         nome.setForeground( new Color(250,250,250));
         nome.setFont(new Font("baciquete", PLAIN, 40));
         nometxt.setBounds(160,45, 300, 40);
+        nometxt.setFont(new Font("baciquete", PLAIN, 30));
         
         apelido.setBounds(500,45,400,48);
+        apelido.setForeground( new Color(250,250,250));
         apelido.setFont(new Font("baciquete", PLAIN, 40));
         apelidotxt.setBounds(650, 45, 300, 40);
-        apelido.setForeground( new Color(250,250,250));
+        apelidotxt.setFont(new Font("baciquete", PLAIN, 30));
+        
         
         perfil.setBounds(23,150,200,28);
+        perfil.setForeground( new Color(250,250,250));
         perfil.setFont(new Font("baciquete", PLAIN, 40));
         perfiltxt.setBounds(160,150, 300, 40);
-        perfil.setForeground( new Color(250,250,250));
+        perfiltxt.setFont(new Font("baciquete", PLAIN, 30));
+       
         
         bi.setBounds(590,150,200,28);
+        bi.setForeground( new Color(250,250,250));
         bi.setFont(new Font("baciquete", PLAIN, 40));
         bitxt.setBounds(650, 150, 300, 40);
-        bi.setForeground( new Color(250,250,250));
+        bitxt.setFont(new Font("baciquete", PLAIN, 30));
+        
         
         adress.setBounds(470,250,220,40);
+        adress.setForeground( new Color(250,250,250));
         adress.setFont(new Font("baciquete", PLAIN, 40));
         adresstxt.setBounds(650, 250, 300, 40);
-        adress.setForeground( new Color(250,250,250));
+        adresstxt.setFont(new Font("baciquete", PLAIN, 30));
+        
         
         senha.setBounds(23,250,200,28);
+        senha.setForeground( new Color(250,250,250));
         senha.setFont(new Font("baciquete", PLAIN, 40));
         senhapss.setBounds(160, 250, 300, 40);
-        senha.setForeground( new Color(250,250,250));
+        senhapss.setFont(new Font("baciquete", PLAIN, 30));
+        
         
         savebtn.setBounds(210,380,600,50);
-        savebtn.setFont(new Font("Arial", Font.BOLD,20));
         savebtn.setForeground( new Color(0,0,139));
+        savebtn.setFont(new Font("Arial", Font.BOLD,20));
         savebtn.addActionListener(this);
        
     }
@@ -134,14 +146,12 @@ public final class PreRegisto extends JFrame implements ActionListener{
            dm.setAdress(adresstxt.getText());
            dm.setPerfil(perfiltxt.getText());
            dm.setbI(bitxt.getText());
-           dm.setSenha(bi.getText());
+           dm.setSenha2(senhapss.getText());
            
-           System.out.print(dm.getSenha());     // crud.inserir(dm);
+           //System.out.print(dm.getSenha2());     
+           crud.inserir(dm);
        
-       /*for(Admin ad:cr.findAll()){
-           System.out.print(ad.getNome());
-           System.out.print(ad.getData());
-       }*/
+       
     }
     
 }

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package View.Form;
+import Controller.Rool;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -20,6 +21,7 @@ public class LoginForm extends JFrame implements ActionListener {
        JLabel lblUser = new JLabel("Usuario :");
        JLabel lblSenha = new JLabel("Senha :");
        JLabel lblLogin = new JLabel("TelaLogin");
+       Rool rool;
        
     public LoginForm(){
        setTitle("TelaLogin");
@@ -62,7 +64,14 @@ public class LoginForm extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-       JOptionPane.showMessageDialog(null, "Logado com Sucesso");
+       rool=new Rool();
+       boolean valido=rool.validar(txtUser.getText(), PassSenha.getText());
+       if(valido){
+           this.dispose();
+           new MenuForm().show();
+       }else{
+           JOptionPane.showMessageDialog(null, "Senha errada");
+       }
     }
     
      

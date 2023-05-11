@@ -7,43 +7,62 @@ package View.Form;
 
 import javax.swing.*;
 import java.awt.*;
+import static java.awt.Font.PLAIN;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  *
  * @author Lenovo T460
  */
 
-public class MenuForm extends JFrame {
-      JPanel panel1 = new JPanel();
-      JPanel panel2 = new JPanel();
-      JLabel lblL = new JLabel("CONDOMINIO_VILLA");
+public class MenuForm extends JFrame implements ActionListener{
+     
+      JMenuBar barra = new JMenuBar();
+      JMenu mArquivos = new JMenu("Arquivos");
+      JMenu mFinancas = new JMenu("Finanças");
+      JMenu mRecepcao = new JMenu("Recepçao");
+      JMenu mSair = new JMenu("Sair");
+      JMenuItem itmPre = new JMenuItem("Pre_Registo");
+       JMenuItem itmUser = new JMenuItem("Usuario");
       
-    
 
     public MenuForm(){
        setResizable(false); 
        setTitle("MenuPrincipal");
+       setSize(600, 400);
        setVisible(true);
-       
        setLocationRelativeTo(null);
-       setDefaultCloseOperation(EXIT_ON_CLOSE);
+       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
        
+    
        
-        setLayout(null);
-        add(panel1);
-        panel1.setSize(200,600);
-        panel1.setBackground( new Color(0,0,139));
+       this.setLayout(null);
+        setJMenuBar(barra);
+        barra.add(mArquivos);
+        barra.add(mFinancas);
+        barra.add(mRecepcao);
+        barra.add(mSair);
+        mArquivos.add(itmPre);
+        mArquivos.add(itmUser);
         
-        add(panel2);
-        panel2.setSize(900,150);
-        panel2.setBackground( new Color(70,130,180));
-      //  panel2.add(lblLogo);
-        //lblLogo.setBounds(250, 35, 50, 50);
-       // lblLogo.setFont(new Font("Arial", Font.BOLD,40));
-       // lblLogo.setForeground(Color.white);
+      itmPre.addActionListener(this);
+      itmUser.addActionListener(this);
         
     
     
 }
+
+    @Override
+    public void actionPerformed(ActionEvent ae) {
+       if(ae.getSource()==itmPre){
+           this.dispose();
+           new PreRegisto().show();
+       }
+       if(ae.getSource()==itmUser){
+           this.dispose();
+           new UserForm().show();
+       }
+    }
 
 }

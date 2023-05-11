@@ -7,6 +7,7 @@ package Model.USER;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,37 +17,32 @@ import javax.persistence.Table;
 /**
  *
  * @author Lenovo T460
- */ 
+ */
 @Entity
-@Table (name = "admin")
-public class Admin implements Serializable {
-   
-
+@Table (name = "sindico")
+public class User implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    
+     private Long id;
+    @Column(name = "nome")
     private String nome;
-    
+    @Column(name = "apelido")
     private String apelido;
-    
+    @Column(name = "bi")
     private String bI;
-   
+    @Column(name = "endereco")
     private String adress;
-    
-    private String senha2;
-    
+    @Column(name = "perfil")
     private String perfil;
-   
-    private String data;
-   
-    
-    public Admin() {
+    @Column(name = "senha")// nao se usa ; para Persistencia de dados
+    private String senha;
+    @Column(name = "data")
+     private String data;
+  
+    public User() {
         LocalDateTime date=LocalDateTime.now();
         this.data=String.valueOf(date);
     }
-
-
 
     public String getNome() {
         return nome;
@@ -88,12 +84,12 @@ public class Admin implements Serializable {
         this.perfil = perfil;
     }
 
-    public Long getId() {
-        return id;
+    public String getSenha() {
+        return senha;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setSenha(String senha) {
+        this.senha = senha;
     }
 
     public String getData() {
@@ -104,18 +100,11 @@ public class Admin implements Serializable {
         this.data = data;
     }
 
-    public String getSenha2() {
-        return senha2;
-    }
-
-    public void setSenha2(String senha2) {
-        this.senha2 = senha2;
-    }
-
     @Override
     public String toString() {
-        return "Admin{" + "nome=" + nome + ", apelido=" + apelido + ", bI=" + bI + ", adress=" + adress + ", senha2=" + senha2 + ", perfil=" + perfil + ", data=" + data + '}';
+        return "User{" + "nome=" + nome + ", apelido=" + apelido + ", bI=" + bI + ", adress=" + adress + ", perfil=" + perfil + ", senha=" + senha + ", data=" + data + '}';
     }
 
-    }   
-
+   
+    
+}

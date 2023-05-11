@@ -6,9 +6,11 @@
 package ClassMain;
 
 import Controller.CRUD;
+import Controller.Rool;
 import Model.USER.Admin;
-import View.Form.MenuForm;
+import View.Form.LoginForm;
 import View.Form.PreRegisto;
+import View.Form.UserForm;
 
 /**
  *
@@ -16,13 +18,12 @@ import View.Form.PreRegisto;
  */
 public class Main {
       public static void main(String[] args) {
-         new PreRegisto().show();
-          //new MenuForm().show();
-        //new FrmLongin().setVisible(true);
-         //new LoginForm().setVisible(true);
-         //CRUD cr=new CRUD();
-         //for(Admin ad:cr.findAll()){
-          //   System.out.println(ad.getNome());
-         //}
+         //new PreRegisto().show();
+         // new MenuForm().show();
+        //new UserForm().show();
+        new LoginForm().setVisible(true);
+        // CRUD cr=new CRUD();
+         // Rool rl=new Rool();
+         // System.out.println(rl.validar("Joao", "13345"));
          
 }}

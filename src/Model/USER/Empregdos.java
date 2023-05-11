@@ -26,8 +26,9 @@ public class Empregdos {
     private String nome;
     private String apelido;
     private String bi;
-    private int telefone;
+    private String  adress;
     private String data_nasc;
+     private String  pass;
     private String data;
 
     public Empregdos() {
@@ -68,13 +69,15 @@ public class Empregdos {
         this.bi = bi;
     }
 
-    public int getTelefone() {
-        return telefone;
+    public String getAdress() {
+        return adress;
     }
 
-    public void setTelefone(int telefone) {
-        this.telefone = telefone;
+    public void setAdress(String adress) {
+        this.adress = adress;
     }
+
+   
 
     public String getData_nasc() {
         return data_nasc;
@@ -91,5 +94,15 @@ public class Empregdos {
     public void setData(String data) {
         this.data = data;
     }
+
+    public String getPass() {
+        return pass;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
+    }
+    
+    
     
 }

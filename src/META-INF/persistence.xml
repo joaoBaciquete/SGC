@@ -4,13 +4,13 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>Model.USER.EmpregadosCond</class>
     <class>Model.USER.Financas</class>
-    <class>Model.USER.Sindico</class>
-    <class>Model.USER.Admin</class>
     <class>Model.USER.EmpregadosDom</class>
     <class>Model.USER.Empregdos</class>
     <class>Model.USER.Morador</class>
     <class>Model.USER.Recepcao</class>
     <class>Model.USER.Veiculo</class>
+    <class>Model.USER.User</class>
+    <class>Model.USER.Admin</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/sgc?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
