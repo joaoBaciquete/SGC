@@ -140,7 +140,7 @@ public final class PreRegisto extends JFrame implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent ae) {
         crud=new CRUD();
-       JOptionPane.showMessageDialog(null, "Logado com Sucesso");
+       JOptionPane.showMessageDialog(null, "Guardado com Sucesso");
            dm.setNome(nometxt.getText());
            dm.setApelido(apelidotxt.getText());
            dm.setAdress(adresstxt.getText());

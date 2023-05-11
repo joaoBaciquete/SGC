@@ -43,6 +43,7 @@ public class UserForm extends JFrame implements ActionListener{
    JButton deletebtn = new JButton("EXCLUIR");
    JButton readbtn = new JButton ("LISTAR");
    JButton updatebtn = new JButton ("ATUALIZAR");
+   JButton Exitbtn = new JButton ("SAIR");
    Telinha tela = new Telinha();
    User usuario;
    EmpregadosCond emp;
@@ -73,6 +74,7 @@ public UserForm() {
         tela.add(deletebtn);
         tela.add(readbtn);
         tela.add(updatebtn);
+        tela.add(Exitbtn);
         perfiltxt.addItem("Sindico");
         perfiltxt.addItem("Porteiro");
         perfiltxt.setFont(new Font("baciquete", PLAIN, 30));
@@ -117,34 +119,45 @@ public UserForm() {
         senhapss.setFont(new Font("baciquete", PLAIN, 30));
         senha.setForeground( new Color(250,250,250));
         
-        savebtn.setBounds(150,330,150,50);
+        savebtn.setBounds(50,330,150,50);
         savebtn.setFont(new Font("Arial", Font.BOLD,20));
         savebtn.setForeground( new Color(0,0,139));
         savebtn.addActionListener(this);
         
-        readbtn.setBounds(350,330,150,50);
+        readbtn.setBounds(250,330,150,50);
         readbtn.setFont(new Font("Arial", Font.BOLD,20));
         readbtn.setForeground( new Color(0,0,139));
         readbtn.addActionListener(this);
         
-        updatebtn.setBounds(550,330,150,50);
+        updatebtn.setBounds(450,330,150,50);
         updatebtn.setFont(new Font("Arial", Font.BOLD,20));
         updatebtn.setForeground( new Color(0,0,139));
         updatebtn.addActionListener(this);
         
-        deletebtn.setBounds(750,330,150,50);
+        deletebtn.setBounds(650,330,150,50);
         deletebtn.setFont(new Font("Arial", Font.BOLD,20));
         deletebtn.setForeground( new Color(0,0,139));
         deletebtn.addActionListener(this);
         
+        Exitbtn.setBounds(850,330,150,50);
+        Exitbtn.setFont(new Font("Arial", Font.BOLD,20));
+        Exitbtn.setForeground( new Color(0,0,139));
+        Exitbtn.addActionListener(this);
 }
 
 @Override
     public void actionPerformed(ActionEvent ae) {
-      usuario = new User();
+        
+     if(ae.getSource()==Exitbtn){
+           this.dispose();
+           new MenuForm().show();
+     }
+    usuario = new User();
     emp = new EmpregadosCond();
     emprega = new Empregdos();
+    
         if(perfiltxt.getSelectedItem()=="Sindico"){
+           JOptionPane.showMessageDialog(null, "Guardado com Sucesso");
            usuario.setNome(nometxt.getText());
            usuario.setApelido(apelidotxt.getText());
            usuario.setPerfil(perfiltxt.getSelectedItem().toString());
@@ -153,7 +166,7 @@ public UserForm() {
            usuario.setSenha(senhapss.getText());
            new CRUD().inserir(usuario);
       
-}
+           }
          if(perfiltxt.getSelectedItem()=="Porteiro"){
              emp.setCategoria(perfiltxt.getSelectedItem().toString());
              emprega.setNome(nometxt.getText());
@@ -164,5 +177,7 @@ public UserForm() {
              emp.setEmp(emprega);
              
               new CRUD().inserir(emp);
-}}
-}
+           }
+        
+       }
+    }
