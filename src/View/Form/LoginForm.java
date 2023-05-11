@@ -24,31 +24,33 @@ public class LoginForm extends JFrame implements ActionListener {
        Rool rool;
        
     public LoginForm(){
+       
        setTitle("TelaLogin");
        setVisible(true);
        setSize(800,500);
        setLocationRelativeTo(null);
-       setDefaultCloseOperation(EXIT_ON_CLOSE);
+       setResizable(false);
+       setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
        
        
        setLayout(null); //set layout para podermos configurar o layout a vontade
        add(btn1);
        add(btn2);
        btn1.setBounds(290,300,100,50);
-       btn1.setFont(new Font("Arial", Font.BOLD,20));
+       btn1.setFont(new Font("Arial", Font.BOLD,25));
        btn1.addActionListener(this);
     
        btn2.setBounds(490,300,100,50);
-       btn2.setFont(new Font("Arial", Font.BOLD,20));
+       btn2.setFont(new Font("Arial", Font.BOLD,25));
+       btn2.addActionListener(this);
        
        add(txtUser);
        add(PassSenha);
        txtUser.setBounds(250,100,400,55);
-       txtUser.setFont(new Font("Arial", Font.ITALIC,20));
-       txtUser.setText("Digite o seu Username");
+       txtUser.setFont(new Font("baciquete", Font.BOLD,30));
        PassSenha.setBounds(250,180,400,55);
-       PassSenha.setFont(new Font("Arial", Font.ITALIC,20));
-       //PassSenha.setText("Digite a sua senha");
+       PassSenha.setFont(new Font("Arial", Font.BOLD,30));
+       
       
        add(lblUser);
        add(lblSenha);
@@ -64,14 +66,21 @@ public class LoginForm extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
+         if(ae.getSource()==btn2){
+          JOptionPane.showMessageDialog(null, "Tens a certeza que deseja sair do sistema??");
+          //JOpionPane.Yes_NO_OPTION
+          System.exit(0);
+       }
        rool=new Rool();
        boolean valido=rool.validar(txtUser.getText(), PassSenha.getText());
        if(valido){
            this.dispose();
            new MenuForm().show();
        }else{
-           JOptionPane.showMessageDialog(null, "Senha errada");
+           JOptionPane.showMessageDialog(null, "Os seus dados nao sao compativeis,tente novamente!!");
+           
        }
+      
     }
     
      

@@ -24,8 +24,10 @@ public class MenuForm extends JFrame implements ActionListener{
       JMenu mRecepcao = new JMenu("Recepçao");
       JMenu mSair = new JMenu("Sair");
       JMenuItem itmPre = new JMenuItem("Pre_Registo");
-       JMenuItem itmUser = new JMenuItem("Usuario");
-      
+      JMenuItem itmUser = new JMenuItem("Usuario");
+      JMenuItem itmCont = new JMenuItem("Contabilidade");
+      JMenuItem itmVisitor = new JMenuItem("Visitante");
+      JMenuItem itmExit = new JMenuItem("Exit");
 
     public MenuForm(){
        setResizable(false); 
@@ -45,9 +47,19 @@ public class MenuForm extends JFrame implements ActionListener{
         barra.add(mSair);
         mArquivos.add(itmPre);
         mArquivos.add(itmUser);
+        mFinancas.add(itmCont);
+        mRecepcao.add(itmVisitor);
+        mSair.add(itmExit);
+        
+        
+        
+        
         
       itmPre.addActionListener(this);
       itmUser.addActionListener(this);
+      itmCont.addActionListener(this);
+      itmVisitor.addActionListener(this);
+      itmExit.addActionListener(this);
         
     
     
@@ -63,6 +75,18 @@ public class MenuForm extends JFrame implements ActionListener{
            this.dispose();
            new UserForm().show();
        }
-    }
+       if(ae.getSource()==itmCont){
+           this.dispose();
+          // new ContForm().show();
+       }
+       if(ae.getSource()==itmVisitor){
+           this.dispose();
+          // new VisitForm().show();
 
+       }
+       if(ae.getSource()==itmExit){
+           this.dispose();
+           new LoginForm().show();
+       }
+    }
 }
