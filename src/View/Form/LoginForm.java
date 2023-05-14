@@ -16,72 +16,80 @@ public class LoginForm extends JFrame implements ActionListener {
     
        JTextField txtUser = new JTextField("");
        JPasswordField PassSenha = new JPasswordField("");
-       JButton btn1 = new JButton("Entrar");
-       JButton btn2 = new JButton("Sair");
-       JLabel lblUser = new JLabel("Usuario :");
-       JLabel lblSenha = new JLabel("Senha :");
-       JLabel lblLogin = new JLabel("TelaLogin");
+       JButton btn1 = new JButton("ENTRAR");
+       JLabel lblUser = new JLabel("Usuario");
+       JLabel lblSenha = new JLabel("Senha");
+       JLabel lblLogin = new JLabel("Login");
+       JLabel info = new JLabel("Insira corretamente os seus dados de usuario!!!");
        Rool rool;
+       PainelBackgroundForm panel = new PainelBackgroundForm();
+       JPanel panelLogin = new JPanel();
        
     public LoginForm(){
-       
+       setExtendedState(MAXIMIZED_BOTH);
+       setDefaultCloseOperation(EXIT_ON_CLOSE);
        setTitle("TelaLogin");
        setVisible(true);
-       setSize(800,500);
        setLocationRelativeTo(null);
        setResizable(false);
-       setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
        
        
-       setLayout(null); //set layout para podermos configurar o layout a vontade
-       add(btn1);
-       add(btn2);
-       btn1.setBounds(290,300,100,50);
-       btn1.setFont(new Font("Arial", Font.BOLD,25));
+       this.setLayout(null); //set layout para podermos configurar o layout a vontade
+       add(panel);
+       panel.add(panelLogin);
+       panelLogin.add(btn1);
+       panelLogin.add(txtUser);
+       panelLogin.add(PassSenha);
+       panelLogin.add(lblUser);
+       panelLogin.add(lblSenha);
+       panelLogin.add(lblLogin);
+       panelLogin.add(info);
+       
+       panel.setLayout(null);
+       panel.setBounds(0, 0, 2000, 2000);
+       
+       panelLogin.setLayout(new BorderLayout());
+       panelLogin.setBackground(new Color(175,238,238));
+       panelLogin.setBounds(680, 150, 490, 750);
+      
+       btn1.setBounds(50,460,395,50);
+       btn1.setFont(new Font("Tahoma", Font.BOLD,25));
+       btn1.setForeground( new Color(250,250,250));
+       btn1.setBackground(new Color(0,206,209));
        btn1.addActionListener(this);
-    
-       btn2.setBounds(490,300,100,50);
-       btn2.setFont(new Font("Arial", Font.BOLD,25));
-       btn2.addActionListener(this);
-       
-       add(txtUser);
-       add(PassSenha);
-       txtUser.setBounds(250,100,400,55);
-       txtUser.setFont(new Font("baciquete", Font.BOLD,30));
-       PassSenha.setBounds(250,180,400,55);
+   
+       txtUser.setBounds(50,295,395,50);
+       txtUser.setFont(new Font("Arial", Font.BOLD,30));
+       PassSenha.setBounds(50,400,395,50);
        PassSenha.setFont(new Font("Arial", Font.BOLD,30));
        
-      
-       add(lblUser);
-       add(lblSenha);
-       add(lblLogin);
-       lblUser.setBounds(90,100,100,50);
-       lblUser.setFont(new Font("Arial", Font.BOLD,20));
-       lblSenha.setBounds(100,180,100,50);
-       lblSenha.setFont(new Font("Arial", Font.BOLD,20));
-       lblLogin.setBounds(300,5,250,50);
-       lblLogin.setFont(new Font("Arial", Font.BOLD,40));
+       lblUser.setBounds(50,250,150,40);
+       lblUser.setForeground( new Color(250,250,250));
+       lblUser.setFont(new Font("Tahoma", Font.BOLD,30));
+       lblSenha.setBounds(50,350,150,40);
+       lblSenha.setForeground( new Color(250,250,250));
+       lblSenha.setFont(new Font("Tahoma", Font.BOLD,30));
+       lblLogin.setBounds(170,90,250,60);
+       lblLogin.setForeground( new Color(250,250,250));
+       lblLogin.setFont(new Font("SenSerif", Font.BOLD,50));
+       info.setBounds(40,560,450,60);
+       info.setForeground( new Color(250,250,250));
+       info.setFont(new Font("SenSerif", Font.ITALIC,20));
        
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-         if(ae.getSource()==btn2){
-          JOptionPane.showMessageDialog(null, "Tens a certeza que deseja sair do sistema??");
-          //JOpionPane.Yes_NO_OPTION
-          System.exit(0);
-       }
+        
        rool=new Rool();
        boolean valido=rool.validar(txtUser.getText(), PassSenha.getText());
        if(valido){
            this.dispose();
            new MenuForm().show();
        }else{
-           JOptionPane.showMessageDialog(null, "Os seus dados nao sao compativeis,tente novamente!!");
+           JOptionPane.showMessageDialog(null, "Preencha corretamente os seus dados!!");
            
        }
       
     }
-    
-     
-}
+}  

@@ -5,22 +5,20 @@
  */
 package View.Form;
 
-import Controller.CRUD;
-import Model.USER.Admin;
-
+import Model.USER.EmpregadosCond;
+import Model.USER.Empregdos;
+import Model.USER.User;
 import java.awt.Color;
 import java.awt.Font;
 import static java.awt.Font.PLAIN;
-import java.awt.HeadlessException;
+import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.JButton;
-
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -28,13 +26,13 @@ import javax.swing.JTextField;
  *
  * @author Lenovo T460
  */
-public final class PreRegisto extends JFrame implements ActionListener{
-  
+
+public class MoradorForm extends JFrame implements ActionListener{
    JTextField apelidotxt=new JTextField(10);// nao pode fazer assim o 10 representa 
    JTextField nometxt=new JTextField(10);
    JTextField bitxt=new JTextField(10);
    JTextField adresstxt=new JTextField(10);
-   JTextField perfiltxt=new JTextField(10);
+   JComboBox<String> perfiltxt=new JComboBox<String>();
    JPasswordField senhapss=new JPasswordField(10);
    JLabel nome = new JLabel("Nome:");
    JLabel apelido = new JLabel("Apelido:");
@@ -42,18 +40,28 @@ public final class PreRegisto extends JFrame implements ActionListener{
    JLabel adress = new JLabel("Endereço:");
    JLabel perfil = new JLabel("Perfil:");
    JLabel senha = new JLabel("Senha:");
-   JButton savebtn = new JButton("Salvar");
-   JButton deletebtn = new JButton("EXcluir");
-   JButton sairbtn = new JButton("SAIR");
-
-    Admin dm = new Admin();
-    List<Admin> user;
-    Telinha tela;
-    CRUD crud;
-
-    public PreRegisto() throws HeadlessException {
-        config();
-       
+   JButton savebtn = new JButton("SALVAR");
+   JButton deletebtn = new JButton("EXCLUIR");
+   JButton readbtn = new JButton ("LISTAR");
+   JButton updatebtn = new JButton ("ATUALIZAR");
+   JButton Exitbtn = new JButton ("SAIR");
+   Telinha tela = new Telinha();
+   User usuario;
+   EmpregadosCond emp;
+   Empregdos emprega; 
+    
+    
+    
+public MoradorForm() {
+    
+    setExtendedState(MAXIMIZED_BOTH);
+    setDefaultCloseOperation(EXIT_ON_CLOSE);
+    setTitle("Cadastro de Usuarios");
+    setVisible(true);
+    setLocationRelativeTo(null);
+    
+    this.setLayout(null);
+   
         tela.add(senha);
         tela.add(senhapss);
         tela.add(perfil);
@@ -67,101 +75,82 @@ public final class PreRegisto extends JFrame implements ActionListener{
         tela.add(nome);
         tela.add(nometxt);
         tela.add(savebtn);
-        tela.add(sairbtn);
-       
-       
-        this.add(tela);
-
-    }
+        tela.add(deletebtn);
+        tela.add(readbtn);
+        tela.add(updatebtn);
+        tela.add(Exitbtn);
+        perfiltxt.addItem("Sindico");
+        perfiltxt.addItem("Porteiro");
+        perfiltxt.setFont(new Font("baciquete", PLAIN, 30));
     
-     
-    public void config(){
-       
-        setExtendedState(MAXIMIZED_BOTH);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setLayout(null);
-        user = new ArrayList<>();
-        setTitle("Pre_Registo");
-        tela = new Telinha();
-        tela.setLayout(null);
-        tela.setBounds(450, 150, 1024, 720);
-        
-        nome.setBounds(23,50,200,28);
+    add(tela);
+    tela.setLayout(null);
+    tela.setBounds(450, 150, 1024, 720);
+    
+     nome.setBounds(23,50,200,28);
         nome.setForeground( new Color(250,250,250));
         nome.setFont(new Font("baciquete", PLAIN, 40));
         nometxt.setBounds(160,45, 300, 40);
         nometxt.setFont(new Font("baciquete", PLAIN, 30));
         
         apelido.setBounds(500,45,400,48);
-        apelido.setForeground( new Color(250,250,250));
         apelido.setFont(new Font("baciquete", PLAIN, 40));
         apelidotxt.setBounds(650, 45, 300, 40);
         apelidotxt.setFont(new Font("baciquete", PLAIN, 30));
-        
+        apelido.setForeground( new Color(250,250,250));
         
         perfil.setBounds(23,150,200,28);
-        perfil.setForeground( new Color(250,250,250));
         perfil.setFont(new Font("baciquete", PLAIN, 40));
         perfiltxt.setBounds(160,150, 300, 40);
         perfiltxt.setFont(new Font("baciquete", PLAIN, 30));
-       
+        perfil.setForeground( new Color(250,250,250));
         
         bi.setBounds(590,150,200,28);
-        bi.setForeground( new Color(250,250,250));
         bi.setFont(new Font("baciquete", PLAIN, 40));
         bitxt.setBounds(650, 150, 300, 40);
         bitxt.setFont(new Font("baciquete", PLAIN, 30));
-        
+        bi.setForeground( new Color(250,250,250));
         
         adress.setBounds(470,250,220,40);
-        adress.setForeground( new Color(250,250,250));
         adress.setFont(new Font("baciquete", PLAIN, 40));
         adresstxt.setBounds(650, 250, 300, 40);
         adresstxt.setFont(new Font("baciquete", PLAIN, 30));
-        
+        adress.setForeground( new Color(250,250,250));
         
         senha.setBounds(23,250,200,28);
-        senha.setForeground( new Color(250,250,250));
         senha.setFont(new Font("baciquete", PLAIN, 40));
         senhapss.setBounds(160, 250, 300, 40);
         senhapss.setFont(new Font("baciquete", PLAIN, 30));
+        senha.setForeground( new Color(250,250,250));
         
-        
-        savebtn.setBounds(210,380,100,50);
-        savebtn.setForeground( new Color(0,0,139));
+        savebtn.setBounds(50,330,150,50);
         savebtn.setFont(new Font("Arial", Font.BOLD,20));
+        savebtn.setForeground( new Color(0,0,139));
         savebtn.addActionListener(this);
-       
-        sairbtn.setBounds(410,380,100,50);
-        sairbtn.setForeground( new Color(0,0,139));
-        sairbtn.setFont(new Font("Arial", Font.BOLD,20));
-        sairbtn.addActionListener(this);
-    }
-   
-    public void connect(){
-       
         
-    }
+        readbtn.setBounds(250,330,150,50);
+        readbtn.setFont(new Font("Arial", Font.BOLD,20));
+        readbtn.setForeground( new Color(0,0,139));
+        readbtn.addActionListener(this);
+        
+        updatebtn.setBounds(450,330,150,50);
+        updatebtn.setFont(new Font("Arial", Font.BOLD,20));
+        updatebtn.setForeground( new Color(0,0,139));
+        updatebtn.addActionListener(this);
+        
+        deletebtn.setBounds(650,330,150,50);
+        deletebtn.setFont(new Font("Arial", Font.BOLD,20));
+        deletebtn.setForeground( new Color(0,0,139));
+        deletebtn.addActionListener(this);
+        
+        Exitbtn.setBounds(850,330,150,50);
+        Exitbtn.setFont(new Font("Arial", Font.BOLD,20));
+        Exitbtn.setForeground( new Color(0,0,139));
+        Exitbtn.addActionListener(this);
+}
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-         if(ae.getSource()==sairbtn){
-           this.dispose();
-           new MenuForm().show();
-       }
-        crud=new CRUD();
-       JOptionPane.showMessageDialog(null, "Guardado com Sucesso");
-           dm.setNome(nometxt.getText());
-           dm.setApelido(apelidotxt.getText());
-           dm.setAdress(adresstxt.getText());
-           dm.setPerfil(perfiltxt.getText());
-           dm.setbI(bitxt.getText());
-           dm.setSenha2(senhapss.getText());
-           
-           //System.out.print(dm.getSenha2());     
-           crud.inserir(dm);
-       
-       
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
 }

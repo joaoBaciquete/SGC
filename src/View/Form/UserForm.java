@@ -29,7 +29,7 @@ import javax.swing.*;
 public class UserForm extends JFrame implements ActionListener{
    JTextField apelidotxt=new JTextField(10);// nao pode fazer assim o 10 representa 
    JTextField nometxt=new JTextField(10);
-   JTextField bitxt=new JTextField(10);
+   JTextField bitxt=new JTextField(13);
    JTextField adresstxt=new JTextField(10);
    JComboBox<String> perfiltxt=new JComboBox<String>();
    JPasswordField senhapss=new JPasswordField(10);
@@ -157,7 +157,7 @@ public UserForm() {
     emprega = new Empregdos();
     
         if(perfiltxt.getSelectedItem()=="Sindico"){
-           JOptionPane.showMessageDialog(null, "Guardado com Sucesso");
+          
            usuario.setNome(nometxt.getText());
            usuario.setApelido(apelidotxt.getText());
            usuario.setPerfil(perfiltxt.getSelectedItem().toString());
@@ -165,6 +165,7 @@ public UserForm() {
            usuario.setbI(bitxt.getText());
            usuario.setSenha(senhapss.getText());
            new CRUD().inserir(usuario);
+           //JOptionPane.showMessageDialog(null, "Guardado com Sucesso");
       
            }
          if(perfiltxt.getSelectedItem()=="Porteiro"){

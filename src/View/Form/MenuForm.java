@@ -25,6 +25,7 @@ public class MenuForm extends JFrame implements ActionListener{
       JMenu mSair = new JMenu("Sair");
       JMenuItem itmPre = new JMenuItem("Pre_Registo");
       JMenuItem itmUser = new JMenuItem("Usuario");
+      JMenuItem itmMorador = new JMenuItem("Morador");
       JMenuItem itmCont = new JMenuItem("Contabilidade");
       JMenuItem itmVisitor = new JMenuItem("Visitante");
       JMenuItem itmExit = new JMenuItem("Exit");
@@ -32,7 +33,7 @@ public class MenuForm extends JFrame implements ActionListener{
     public MenuForm(){
        setResizable(false); 
        setTitle("MenuPrincipal");
-       setSize(600, 400);
+       setSize(900, 500);
        setVisible(true);
        setLocationRelativeTo(null);
        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -47,6 +48,7 @@ public class MenuForm extends JFrame implements ActionListener{
         barra.add(mSair);
         mArquivos.add(itmPre);
         mArquivos.add(itmUser);
+        mArquivos.add(itmMorador);
         mFinancas.add(itmCont);
         mRecepcao.add(itmVisitor);
         mSair.add(itmExit);
@@ -57,6 +59,7 @@ public class MenuForm extends JFrame implements ActionListener{
         
       itmPre.addActionListener(this);
       itmUser.addActionListener(this);
+      itmMorador.addActionListener(this);
       itmCont.addActionListener(this);
       itmVisitor.addActionListener(this);
       itmExit.addActionListener(this);
@@ -74,6 +77,10 @@ public class MenuForm extends JFrame implements ActionListener{
        if(ae.getSource()==itmUser){
            this.dispose();
            new UserForm().show();
+       }
+        if(ae.getSource()==itmMorador){
+           this.dispose();
+           new MoradorForm().show();
        }
        if(ae.getSource()==itmCont){
            this.dispose();
