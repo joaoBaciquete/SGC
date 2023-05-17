@@ -30,8 +30,12 @@ public class UserForm extends JFrame implements ActionListener{
    JTextField apelidotxt=new JTextField(10);// nao pode fazer assim o 10 representa 
    JTextField nometxt=new JTextField(10);
    JTextField bitxt=new JTextField(13);
-   JTextField adresstxt=new JTextField(10);
+   JTextField datatxt = new JTextField(10);
+   JTextField ruaAvtxt = new JTextField(10);
+   JTextField ncasatxt=new JTextField(10);
+   //JTable tabela = new JTable(8, 9);
    JComboBox<String> perfiltxt=new JComboBox<String>();
+   JComboBox<String> sexotxt = new JComboBox<String>();
    JPasswordField senhapss=new JPasswordField(10);
    JLabel nome = new JLabel("Nome:");
    JLabel apelido = new JLabel("Apelido:");
@@ -39,6 +43,11 @@ public class UserForm extends JFrame implements ActionListener{
    JLabel adress = new JLabel("Endereço:");
    JLabel perfil = new JLabel("Perfil:");
    JLabel senha = new JLabel("Senha:");
+   JLabel data = new JLabel("DataNascimento:");
+   JLabel ruaAv = new JLabel("Rua/Av:");
+   JLabel ncasa = new JLabel("NºCasa:");
+   JLabel sexo = new JLabel("Sexo:");
+   JLabel info = new JLabel("CADASTRO DOS USUARIOS");
    JButton savebtn = new JButton("SALVAR");
    JButton deletebtn = new JButton("EXCLUIR");
    JButton readbtn = new JButton ("LISTAR");
@@ -50,9 +59,10 @@ public class UserForm extends JFrame implements ActionListener{
    Empregdos emprega;
 public UserForm() {
     
-    setExtendedState(MAXIMIZED_BOTH);
-    setDefaultCloseOperation(EXIT_ON_CLOSE);
+    
+    setUndecorated(true);
     setTitle("Cadastro de Usuarios");
+    setSize(1300, 920);
     setVisible(true);
     setLocationRelativeTo(null);
     
@@ -63,85 +73,125 @@ public UserForm() {
         tela.add(perfil);
         tela.add(perfiltxt);
         tela.add(adress);
-        tela.add(adresstxt);
         tela.add(bi);
         tela.add(bitxt);
         tela.add(apelido);
         tela.add(apelidotxt);
         tela.add(nome);
         tela.add(nometxt);
+        tela.add(data);
+        tela.add(datatxt);
+        tela.add(ruaAv);
+        tela.add(ruaAvtxt);
+        tela.add(ncasa);
+        tela.add(ncasatxt);
+        tela.add(sexo);
+        tela.add(sexotxt);
         tela.add(savebtn);
         tela.add(deletebtn);
         tela.add(readbtn);
         tela.add(updatebtn);
         tela.add(Exitbtn);
+        tela.add(info);
+        //tela.add(tabela);
         perfiltxt.addItem("Sindico");
         perfiltxt.addItem("Porteiro");
-        perfiltxt.setFont(new Font("baciquete", PLAIN, 30));
+        perfiltxt.setFont(new Font("baciquete", PLAIN, 26));
+        sexotxt.addItem("Masculino");
+        sexotxt.addItem("Feminino");
+        sexotxt.setFont(new Font("baciquete", PLAIN, 26));
     
     add(tela);
     tela.setLayout(null);
-    tela.setBounds(450, 150, 1024, 720);
-    
-     nome.setBounds(23,50,200,28);
+    tela.setBounds(0,0, 1300, 920);
+        //tela.add(tabela);
+        //tabela.setBounds(50,330,150,50);
+        
+        info.setBounds(23,10,450,35);
+        info.setForeground( new Color(250,250,250));
+        info.setFont(new Font("baciquete", PLAIN, 30));
+        
+        nome.setBounds(23,75,200,28);
         nome.setForeground( new Color(250,250,250));
-        nome.setFont(new Font("baciquete", PLAIN, 40));
-        nometxt.setBounds(160,45, 300, 40);
+        nome.setFont(new Font("baciquete", PLAIN, 30));
+        nometxt.setBounds(115,75, 300, 40);
         nometxt.setFont(new Font("baciquete", PLAIN, 30));
         
-        apelido.setBounds(500,45,400,48);
-        apelido.setFont(new Font("baciquete", PLAIN, 40));
-        apelidotxt.setBounds(650, 45, 300, 40);
+        apelido.setBounds(450,75,400,30);
+        apelido.setFont(new Font("baciquete", PLAIN, 30));
+        apelidotxt.setBounds(560, 75, 300, 40);
         apelidotxt.setFont(new Font("baciquete", PLAIN, 30));
         apelido.setForeground( new Color(250,250,250));
         
-        perfil.setBounds(23,150,200,28);
-        perfil.setFont(new Font("baciquete", PLAIN, 40));
-        perfiltxt.setBounds(160,150, 300, 40);
+        perfil.setBounds(23,180,200,30);
+        perfil.setFont(new Font("baciquete", PLAIN, 30));
+        perfiltxt.setBounds(115,180, 300, 40);
         perfiltxt.setFont(new Font("baciquete", PLAIN, 30));
         perfil.setForeground( new Color(250,250,250));
         
-        bi.setBounds(590,150,200,28);
-        bi.setFont(new Font("baciquete", PLAIN, 40));
-        bitxt.setBounds(650, 150, 300, 40);
+        bi.setBounds(880,75,400,30);
+        bi.setFont(new Font("baciquete", PLAIN, 30));
+        bitxt.setBounds(930,75,300,40);
         bitxt.setFont(new Font("baciquete", PLAIN, 30));
         bi.setForeground( new Color(250,250,250));
         
-        adress.setBounds(470,250,220,40);
-        adress.setFont(new Font("baciquete", PLAIN, 40));
-        adresstxt.setBounds(650, 250, 300, 40);
-        adresstxt.setFont(new Font("baciquete", PLAIN, 30));
-        adress.setForeground( new Color(250,250,250));
+        ruaAv.setBounds(23,270,220,40);
+        ruaAv.setForeground( new Color(250,250,250));
+        ruaAv.setFont(new Font("baciquete", PLAIN, 30));
+        ruaAvtxt.setBounds(135, 270, 250, 40);
+        ruaAvtxt.setFont(new Font("baciquete", PLAIN, 30));
         
-        senha.setBounds(23,250,200,28);
-        senha.setFont(new Font("baciquete", PLAIN, 40));
-        senhapss.setBounds(160, 250, 300, 40);
+        ncasa.setBounds(430,270,220,40);
+        ncasa.setForeground( new Color(250,250,250));
+        ncasa.setFont(new Font("baciquete", PLAIN, 30));
+        ncasatxt.setBounds(560, 270, 250, 40);
+        ncasatxt.setFont(new Font("baciquete", PLAIN, 30));
+        
+        sexo.setBounds(850,270,220,40);
+        sexo.setForeground( new Color(250,250,250));
+        sexo.setFont(new Font("baciquete", PLAIN, 30));
+        sexotxt.setBounds(940, 270, 250, 40);
+        sexotxt.setFont(new Font("baciquete", PLAIN, 30));
+        
+        
+        senha.setBounds(450,180,200,28);
+        senha.setFont(new Font("baciquete", PLAIN, 30));
+        senhapss.setBounds(560,180, 300, 40);
         senhapss.setFont(new Font("baciquete", PLAIN, 30));
         senha.setForeground( new Color(250,250,250));
         
-        savebtn.setBounds(50,330,150,50);
+        data.setBounds(880,180,250,28);
+        data.setForeground( new Color(250,250,250));
+        data.setFont(new Font("baciquete", PLAIN, 30));
+        datatxt.setBounds(1100,180, 150, 40);
+        datatxt.setFont(new Font("baciquete", PLAIN, 30));
+        
+        
+        savebtn.setBounds(50,360,150,50);
         savebtn.setFont(new Font("Arial", Font.BOLD,20));
         savebtn.setForeground( new Color(0,0,139));
         savebtn.addActionListener(this);
         
-        readbtn.setBounds(250,330,150,50);
+        readbtn.setBounds(250,360,150,50);
         readbtn.setFont(new Font("Arial", Font.BOLD,20));
         readbtn.setForeground( new Color(0,0,139));
         readbtn.addActionListener(this);
         
-        updatebtn.setBounds(450,330,150,50);
+        updatebtn.setBounds(450,360,150,50);
         updatebtn.setFont(new Font("Arial", Font.BOLD,20));
         updatebtn.setForeground( new Color(0,0,139));
         updatebtn.addActionListener(this);
         
-        deletebtn.setBounds(650,330,150,50);
+        deletebtn.setBounds(650,360,150,50);
         deletebtn.setFont(new Font("Arial", Font.BOLD,20));
-        deletebtn.setForeground( new Color(0,0,139));
+        deletebtn.setForeground( new Color(255,255,255));
+        deletebtn.setBackground( new Color(255,0,0));
         deletebtn.addActionListener(this);
         
-        Exitbtn.setBounds(850,330,150,50);
+        Exitbtn.setBounds(950,360,150,50);
         Exitbtn.setFont(new Font("Arial", Font.BOLD,20));
-        Exitbtn.setForeground( new Color(0,0,139));
+        Exitbtn.setForeground( new Color(255,255,255));
+        Exitbtn.setBackground( new Color(0,255,0));
         Exitbtn.addActionListener(this);
 }
 
@@ -161,7 +211,7 @@ public UserForm() {
            usuario.setNome(nometxt.getText());
            usuario.setApelido(apelidotxt.getText());
            usuario.setPerfil(perfiltxt.getSelectedItem().toString());
-           usuario.setAdress(adresstxt.getText());
+           usuario.setAdress(ruaAvtxt.getText());
            usuario.setbI(bitxt.getText());
            usuario.setSenha(senhapss.getText());
            new CRUD().inserir(usuario);
@@ -172,7 +222,7 @@ public UserForm() {
              emp.setCategoria(perfiltxt.getSelectedItem().toString());
              emprega.setNome(nometxt.getText());
              emprega.setApelido(apelidotxt.getText());
-             emprega.setAdress(adresstxt.getText());
+             emprega.setAdress(ruaAvtxt.getText());
              emprega.setBi(bitxt.getText());
              emprega.setPass(senhapss.getText());
              emp.setEmp(emprega);

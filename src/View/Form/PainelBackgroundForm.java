@@ -16,7 +16,7 @@ import javax.swing.JPanel;
 public class PainelBackgroundForm extends JPanel {
     public PainelBackgroundForm() {
         
-       this.setBackground(new Color(0,206,209));
+       this.setBackground(new Color(79,79,79));
       
     }
 

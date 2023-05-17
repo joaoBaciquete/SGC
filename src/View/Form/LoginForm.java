@@ -49,13 +49,13 @@ public class LoginForm extends JFrame implements ActionListener {
        panel.setBounds(0, 0, 2000, 2000);
        
        panelLogin.setLayout(new BorderLayout());
-       panelLogin.setBackground(new Color(175,238,238));
+       panelLogin.setBackground(new Color(181,181,181));
        panelLogin.setBounds(680, 150, 490, 750);
       
        btn1.setBounds(50,460,395,50);
        btn1.setFont(new Font("Tahoma", Font.BOLD,25));
        btn1.setForeground( new Color(250,250,250));
-       btn1.setBackground(new Color(0,206,209));
+       btn1.setBackground(new Color(0,255,0));
        btn1.addActionListener(this);
    
        txtUser.setBounds(50,295,395,50);

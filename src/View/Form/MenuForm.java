@@ -29,18 +29,23 @@ public class MenuForm extends JFrame implements ActionListener{
       JMenuItem itmCont = new JMenuItem("Contabilidade");
       JMenuItem itmVisitor = new JMenuItem("Visitante");
       JMenuItem itmExit = new JMenuItem("Exit");
-
+      ImageIcon imagem = new ImageIcon(getClass().getResource("pngwing.com.png"));
+      JLabel label = new JLabel(imagem);
     public MenuForm(){
-       setResizable(false); 
+       setExtendedState(MAXIMIZED_BOTH);
+       setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
        setTitle("MenuPrincipal");
-       setSize(900, 500);
        setVisible(true);
+       setResizable(false);
        setLocationRelativeTo(null);
-       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+       
        
     
        
        this.setLayout(null);
+       add(label);
+       label.setBounds(0,0, 1950, 1050);
+       
         setJMenuBar(barra);
         barra.add(mArquivos);
         barra.add(mFinancas);
@@ -53,7 +58,17 @@ public class MenuForm extends JFrame implements ActionListener{
         mRecepcao.add(itmVisitor);
         mSair.add(itmExit);
         
+        mArquivos.setFont(new Font("Arial", Font.BOLD,30));
+        mFinancas.setFont(new Font("Arial", Font.BOLD,30));
+        mRecepcao.setFont(new Font("Arial", Font.BOLD,30));
+        mSair.setFont(new Font("Arial", Font.BOLD,30)); 
         
+        itmPre.setFont(new Font("Arial", Font.BOLD,20));
+        itmUser.setFont(new Font("Arial", Font.BOLD,20));
+        itmMorador.setFont(new Font("Arial", Font.BOLD,20));
+        itmCont.setFont(new Font("Arial", Font.BOLD,20));
+        itmVisitor.setFont(new Font("Arial", Font.BOLD,20));
+        itmExit.setFont(new Font("Arial", Font.BOLD,20));
         
         
         
@@ -78,10 +93,6 @@ public class MenuForm extends JFrame implements ActionListener{
            this.dispose();
            new UserForm().show();
        }
-        if(ae.getSource()==itmMorador){
-           this.dispose();
-           new MoradorForm().show();
-       }
        if(ae.getSource()==itmCont){
            this.dispose();
           // new ContForm().show();
@@ -94,6 +105,10 @@ public class MenuForm extends JFrame implements ActionListener{
        if(ae.getSource()==itmExit){
            this.dispose();
            new LoginForm().show();
+       }
+       if(ae.getSource()==itmMorador){
+           this.dispose();
+           new MoradorForm().show();
        }
     }
 }
