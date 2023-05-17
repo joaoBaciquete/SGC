@@ -309,7 +309,7 @@ public MoradorForm() {
         deletebtn.setBackground( new Color(255,0,0));
         deletebtn.addActionListener(this);
         
-        Exitbtn.setBounds(100,850,150,50);
+        Exitbtn.setBounds(1050,850,150,50);
         Exitbtn.setFont(new Font("Arial", Font.BOLD,20));
         Exitbtn.setForeground( new Color(255,255,255));
         Exitbtn.setBackground( new Color(0,255,0));

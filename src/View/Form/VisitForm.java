@@ -31,22 +31,32 @@ import javax.swing.JTextField;
    JTextField bitxt=new JTextField(13);
    JTextField datatxt = new JTextField(10);
    JTextField ruaAvtxt = new JTextField(10);
-   JTextField ncasatxt=new JTextField(10);
-   //JTable tabela = new JTable(8, 9);
-   JComboBox<String> perfiltxt=new JComboBox<String>();
+   JTextField ncasatxt = new JTextField(10);
+   
+   JTextField marcatxt = new JTextField(10);
+   JTextField matriculatxt = new JTextField(10);
+   JTextField cortxt = new JTextField(10);
+   JTextField anotxt = new JTextField(10);
+   JTextField ncasadtxt = new JTextField(10);
    JComboBox<String> sexotxt = new JComboBox<String>();
-   JPasswordField senhapss=new JPasswordField(10);
+   
+   JLabel ncasad = new JLabel("NºCasa:");
+   JLabel marca = new JLabel("Modelo:");
+   JLabel matricula = new JLabel("Matricula:");
+   JLabel cor = new JLabel("Cor:");
+   JLabel ano = new JLabel("AnoFabrico:");
+   
    JLabel nome = new JLabel("Nome:");
    JLabel apelido = new JLabel("Apelido:");
    JLabel bi = new JLabel("BI:");
-   JLabel adress = new JLabel("Endereço:");
-   JLabel perfil = new JLabel("Perfil:");
-   JLabel senha = new JLabel("Senha:");
    JLabel data = new JLabel("DataNascimento:");
    JLabel ruaAv = new JLabel("Rua/Av:");
    JLabel ncasa = new JLabel("NºCasa:");
    JLabel sexo = new JLabel("Sexo:");
+   
+   JLabel visita = new JLabel("DADOS DO VEICULO E ENDEREÇO DESTINO");
    JLabel info = new JLabel("CADASTRO DOS VISITANTE");
+   
    JButton savebtn = new JButton("SALVAR");
    JButton deletebtn = new JButton("EXCLUIR");
    JButton readbtn = new JButton ("LISTAR");
@@ -67,11 +77,16 @@ public VisitForm() {
     
     this.setLayout(null);
    
-        tela.add(senha);
-        tela.add(senhapss);
-        tela.add(perfil);
-        tela.add(perfiltxt);
-        tela.add(adress);
+        tela.add(ano);
+        tela.add(anotxt);
+        tela.add(marca);
+        tela.add(marcatxt);
+        tela.add(matricula);
+        tela.add(matriculatxt);
+        tela.add(cor);
+        tela.add(cortxt);
+        tela.add(ncasad);
+        tela.add(ncasadtxt);
         tela.add(bi);
         tela.add(bitxt);
         tela.add(apelido);
@@ -92,10 +107,7 @@ public VisitForm() {
         tela.add(updatebtn);
         tela.add(Exitbtn);
         tela.add(info);
-        //tela.add(tabela);
-        perfiltxt.addItem("Sindico");
-        perfiltxt.addItem("Porteiro");
-        perfiltxt.setFont(new Font("baciquete", PLAIN, 26));
+        tela.add(visita);
         sexotxt.addItem("Masculino");
         sexotxt.addItem("Feminino");
         sexotxt.setFont(new Font("baciquete", PLAIN, 26));
@@ -110,6 +122,12 @@ public VisitForm() {
         info.setForeground( new Color(250,250,250));
         info.setFont(new Font("baciquete", PLAIN, 30));
         
+        visita.setBounds(23,260,900,35);
+        visita.setForeground( new Color(250,250,250));
+        visita.setFont(new Font("baciquete", PLAIN, 30));
+        
+        ///Dados do Visitante
+        
         nome.setBounds(23,75,200,28);
         nome.setForeground( new Color(250,250,250));
         nome.setFont(new Font("baciquete", PLAIN,25));
@@ -122,73 +140,90 @@ public VisitForm() {
         apelidotxt.setFont(new Font("baciquete", PLAIN, 30));
         apelido.setForeground( new Color(250,250,250));
         
-        //perfil.setBounds(23,180,200,30);
-       // perfil.setFont(new Font("baciquete", PLAIN, 30));
-        //perfiltxt.setBounds(115,180, 300, 40);
-        //perfiltxt.setFont(new Font("baciquete", PLAIN, 30));
-        //perfil.setForeground( new Color(250,250,250));
-        
         bi.setBounds(880,75,400,30);
         bi.setFont(new Font("baciquete", PLAIN,25));
         bitxt.setBounds(930,75,300,40);
         bitxt.setFont(new Font("baciquete", PLAIN, 30));
         bi.setForeground( new Color(250,250,250));
         
-        ruaAv.setBounds(23,180,220,40);
+        ruaAv.setBounds(23,140,220,40);
         ruaAv.setForeground( new Color(250,250,250));
         ruaAv.setFont(new Font("baciquete", PLAIN, 25));
-        ruaAvtxt.setBounds(115,180, 250, 40);
+        ruaAvtxt.setBounds(115,140, 250, 40);
         ruaAvtxt.setFont(new Font("baciquete", PLAIN, 30));
         
-        ncasa.setBounds(450,180,220,40);
+        ncasa.setBounds(450,140,220,40);
         ncasa.setForeground( new Color(250,250,250));
         ncasa.setFont(new Font("baciquete", PLAIN, 25));
-        ncasatxt.setBounds(560,180, 250, 40);
+        ncasatxt.setBounds(560,140, 250, 40);
         ncasatxt.setFont(new Font("baciquete", PLAIN, 30));
         
-        sexo.setBounds(30,270,220,40);
+        sexo.setBounds(30,210,220,40);
         sexo.setForeground( new Color(250,250,250));
         sexo.setFont(new Font("baciquete", PLAIN,25));
-        sexotxt.setBounds(115, 270, 190, 40);
+        sexotxt.setBounds(115,210, 190, 40);
         sexotxt.setFont(new Font("baciquete", PLAIN, 30));
         
-        
-       // senha.setBounds(450,180,200,28);
-        //senha.setFont(new Font("baciquete", PLAIN, 30));
-        //senhapss.setBounds(560,180, 300, 40);
-        //senhapss.setFont(new Font("baciquete", PLAIN, 30));
-        //senha.setForeground( new Color(250,250,250));
-        
-        data.setBounds(880,180,250,28);
+        data.setBounds(880,140,250,28);
         data.setForeground( new Color(250,250,250));
         data.setFont(new Font("baciquete", PLAIN, 25));
-        datatxt.setBounds(1100,180, 150, 40);
+        datatxt.setBounds(1100,140, 150, 40);
         datatxt.setFont(new Font("baciquete", PLAIN, 30));
+        ///Dados do Veiculo dos Visitantes
+        marca.setBounds(32,310,200,30);
+        marca.setFont(new Font("baciquete", PLAIN, 25));
+        marca.setForeground( new Color(250,250,250));
+        marcatxt.setBounds(140,310, 230, 40);
+        marcatxt.setFont(new Font("baciquete", PLAIN, 30));
+         
+        ano.setBounds(410,310,200,28);
+        ano.setFont(new Font("baciquete", PLAIN, 25));
+        ano.setForeground( new Color(250,250,250));
+        anotxt.setBounds(550,310, 300, 40);
+        anotxt.setFont(new Font("baciquete", PLAIN, 30));
+       
+        matricula.setBounds(23,380,200,30);
+        matricula.setFont(new Font("baciquete", PLAIN, 25));
+        matricula.setForeground( new Color(250,250,250));
+        matriculatxt.setBounds(140,380, 220, 40);
+        matriculatxt.setFont(new Font("baciquete", PLAIN, 30));
+       
+       
+        cor.setBounds(380,380,200,30);
+        cor.setFont(new Font("baciquete", PLAIN,25));
+        cor.setForeground( new Color(250,250,250));
+        cortxt.setBounds(435,380, 150, 40);
+        cortxt.setFont(new Font("baciquete", PLAIN, 30));
         
+        ncasad.setBounds(620,380,200,30);
+        ncasad.setFont(new Font("baciquete", PLAIN,25));
+        ncasad.setForeground( new Color(250,250,250));
+        ncasadtxt.setBounds(720,380, 100, 40);
+        ncasadtxt.setFont(new Font("baciquete", PLAIN, 30));
         
-        savebtn.setBounds(50,360,150,50);
+        savebtn.setBounds(50,450,150,50);
         savebtn.setFont(new Font("Arial", Font.BOLD,20));
         savebtn.setForeground( new Color(255,255,255));
         savebtn.setBackground( new Color(0,139,69));
         savebtn.addActionListener(this);
         
-        readbtn.setBounds(250,360,150,50);
+        readbtn.setBounds(250,450,150,50);
         readbtn.setFont(new Font("Arial", Font.BOLD,20));
         readbtn.setForeground( new Color(0,0,139));
         readbtn.addActionListener(this);
         
-        updatebtn.setBounds(450,360,150,50);
+        updatebtn.setBounds(450,450,150,50);
         updatebtn.setFont(new Font("Arial", Font.BOLD,20));
         updatebtn.setForeground( new Color(0,0,139));
         updatebtn.addActionListener(this);
         
-        deletebtn.setBounds(650,360,150,50);
+        deletebtn.setBounds(650,450,150,50);
         deletebtn.setFont(new Font("Arial", Font.BOLD,20));
         deletebtn.setForeground( new Color(255,255,255));
         deletebtn.setBackground( new Color(255,0,0));
         deletebtn.addActionListener(this);
         
-        Exitbtn.setBounds(1100,360,150,50);
+        Exitbtn.setBounds(1100,850,150,50);
         Exitbtn.setFont(new Font("Arial", Font.BOLD,20));
         Exitbtn.setForeground( new Color(255,255,255));
         Exitbtn.setBackground( new Color(0,255,0));

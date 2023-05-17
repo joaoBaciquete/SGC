@@ -24,8 +24,8 @@ public class Main {
          //new PreRegisto().show();
          //new MenuForm().show();
       //new UserForm().show();
-      //new VisitForm().show();
-         new MoradorForm().show();
+      new VisitForm().show();
+         //new MoradorForm().show();
        //new LoginForm().setVisible(true);
         // CRUD cr=new CRUD();
          // Rool rl=new Rool();
