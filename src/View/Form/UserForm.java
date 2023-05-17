@@ -61,10 +61,10 @@ public UserForm() {
     
     
     setUndecorated(true);
-    setTitle("Cadastro de Usuarios");
     setSize(1300, 920);
     setVisible(true);
     setLocationRelativeTo(null);
+    setDefaultCloseOperation(EXIT_ON_CLOSE);
     
     this.setLayout(null);
    
@@ -113,63 +113,64 @@ public UserForm() {
         
         nome.setBounds(23,75,200,28);
         nome.setForeground( new Color(250,250,250));
-        nome.setFont(new Font("baciquete", PLAIN, 30));
+        nome.setFont(new Font("baciquete", PLAIN, 25));
         nometxt.setBounds(115,75, 300, 40);
         nometxt.setFont(new Font("baciquete", PLAIN, 30));
         
         apelido.setBounds(450,75,400,30);
-        apelido.setFont(new Font("baciquete", PLAIN, 30));
+        apelido.setFont(new Font("baciquete", PLAIN, 25));
         apelidotxt.setBounds(560, 75, 300, 40);
         apelidotxt.setFont(new Font("baciquete", PLAIN, 30));
         apelido.setForeground( new Color(250,250,250));
         
         perfil.setBounds(23,180,200,30);
-        perfil.setFont(new Font("baciquete", PLAIN, 30));
+        perfil.setFont(new Font("baciquete", PLAIN,25));
         perfiltxt.setBounds(115,180, 300, 40);
         perfiltxt.setFont(new Font("baciquete", PLAIN, 30));
         perfil.setForeground( new Color(250,250,250));
         
         bi.setBounds(880,75,400,30);
-        bi.setFont(new Font("baciquete", PLAIN, 30));
+        bi.setFont(new Font("baciquete", PLAIN, 25));
         bitxt.setBounds(930,75,300,40);
         bitxt.setFont(new Font("baciquete", PLAIN, 30));
         bi.setForeground( new Color(250,250,250));
         
         ruaAv.setBounds(23,270,220,40);
         ruaAv.setForeground( new Color(250,250,250));
-        ruaAv.setFont(new Font("baciquete", PLAIN, 30));
+        ruaAv.setFont(new Font("baciquete", PLAIN,25));
         ruaAvtxt.setBounds(135, 270, 250, 40);
         ruaAvtxt.setFont(new Font("baciquete", PLAIN, 30));
         
         ncasa.setBounds(430,270,220,40);
         ncasa.setForeground( new Color(250,250,250));
-        ncasa.setFont(new Font("baciquete", PLAIN, 30));
+        ncasa.setFont(new Font("baciquete", PLAIN, 25));
         ncasatxt.setBounds(560, 270, 250, 40);
         ncasatxt.setFont(new Font("baciquete", PLAIN, 30));
         
         sexo.setBounds(850,270,220,40);
         sexo.setForeground( new Color(250,250,250));
-        sexo.setFont(new Font("baciquete", PLAIN, 30));
+        sexo.setFont(new Font("baciquete", PLAIN,25));
         sexotxt.setBounds(940, 270, 250, 40);
         sexotxt.setFont(new Font("baciquete", PLAIN, 30));
         
         
         senha.setBounds(450,180,200,28);
-        senha.setFont(new Font("baciquete", PLAIN, 30));
+        senha.setFont(new Font("baciquete", PLAIN,25));
         senhapss.setBounds(560,180, 300, 40);
         senhapss.setFont(new Font("baciquete", PLAIN, 30));
         senha.setForeground( new Color(250,250,250));
         
         data.setBounds(880,180,250,28);
         data.setForeground( new Color(250,250,250));
-        data.setFont(new Font("baciquete", PLAIN, 30));
+        data.setFont(new Font("baciquete", PLAIN,25));
         datatxt.setBounds(1100,180, 150, 40);
         datatxt.setFont(new Font("baciquete", PLAIN, 30));
         
         
         savebtn.setBounds(50,360,150,50);
         savebtn.setFont(new Font("Arial", Font.BOLD,20));
-        savebtn.setForeground( new Color(0,0,139));
+        savebtn.setForeground( new Color(255,255,255));
+        savebtn.setBackground( new Color(0,139,69));
         savebtn.addActionListener(this);
         
         readbtn.setBounds(250,360,150,50);
@@ -188,7 +189,7 @@ public UserForm() {
         deletebtn.setBackground( new Color(255,0,0));
         deletebtn.addActionListener(this);
         
-        Exitbtn.setBounds(950,360,150,50);
+        Exitbtn.setBounds(1000,360,150,50);
         Exitbtn.setFont(new Font("Arial", Font.BOLD,20));
         Exitbtn.setForeground( new Color(255,255,255));
         Exitbtn.setBackground( new Color(0,255,0));

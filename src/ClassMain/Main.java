@@ -13,6 +13,7 @@ import View.Form.MenuForm;
 import View.Form.MoradorForm;
 import View.Form.PreRegisto;
 import View.Form.UserForm;
+import View.Form.VisitForm;
 
 /**
  *
@@ -23,6 +24,7 @@ public class Main {
          //new PreRegisto().show();
          //new MenuForm().show();
       //new UserForm().show();
+      //new VisitForm().show();
          new MoradorForm().show();
        //new LoginForm().setVisible(true);
         // CRUD cr=new CRUD();

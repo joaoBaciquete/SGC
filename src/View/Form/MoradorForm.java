@@ -92,11 +92,11 @@ public class MoradorForm extends JFrame implements ActionListener{
 public MoradorForm() {
     
     setUndecorated(true);
-    setTitle("Cadastro de Moradores");
     setVisible(true);
     setSize(1300, 920);
-     setResizable(false);
+    setResizable(false);
     setLocationRelativeTo(null);
+    setDefaultCloseOperation(EXIT_ON_CLOSE);
     
     this.setLayout(null);
    
@@ -287,28 +287,29 @@ public MoradorForm() {
         matriculatxt.setFont(new Font("baciquete", PLAIN, 30));
         
    //Botoes e suas respectivas accoes     
-        savebtn.setBounds(50,800,150,50);
+        savebtn.setBounds(50,580,150,50);
         savebtn.setFont(new Font("Arial", Font.BOLD,20));
-        savebtn.setForeground( new Color(0,0,139));
+        savebtn.setForeground( new Color(255,255,255));
+        savebtn.setBackground( new Color(0,139,69));
         savebtn.addActionListener(this);
         
-        readbtn.setBounds(250,800,150,50);
+        readbtn.setBounds(250,580,150,50);
         readbtn.setFont(new Font("Arial", Font.BOLD,20));
         readbtn.setForeground( new Color(0,0,139));
         readbtn.addActionListener(this);
         
-        updatebtn.setBounds(450,800,150,50);
+        updatebtn.setBounds(450,580,150,50);
         updatebtn.setFont(new Font("Arial", Font.BOLD,20));
         updatebtn.setForeground( new Color(0,0,139));
         updatebtn.addActionListener(this);
         
-        deletebtn.setBounds(650,800,150,50);
+        deletebtn.setBounds(650,580,150,50);
         deletebtn.setFont(new Font("Arial", Font.BOLD,20));
         deletebtn.setForeground( new Color(255,255,255));
         deletebtn.setBackground( new Color(255,0,0));
         deletebtn.addActionListener(this);
         
-        Exitbtn.setBounds(950,800,150,50);
+        Exitbtn.setBounds(100,850,150,50);
         Exitbtn.setFont(new Font("Arial", Font.BOLD,20));
         Exitbtn.setForeground( new Color(255,255,255));
         Exitbtn.setBackground( new Color(0,255,0));

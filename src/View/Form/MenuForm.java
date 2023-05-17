@@ -99,8 +99,7 @@ public class MenuForm extends JFrame implements ActionListener{
        }
        if(ae.getSource()==itmVisitor){
            this.dispose();
-          // new VisitForm().show();
-
+           new VisitForm().show();
        }
        if(ae.getSource()==itmExit){
            this.dispose();

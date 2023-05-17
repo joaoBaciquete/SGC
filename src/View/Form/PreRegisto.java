@@ -127,13 +127,15 @@ public final class PreRegisto extends JFrame implements ActionListener{
         senhapss.setFont(new Font("baciquete", PLAIN, 30));
         
         
-        savebtn.setBounds(210,380,100,50);
-        savebtn.setForeground( new Color(0,0,139));
+        savebtn.setBounds(210,380,150,50);
+        savebtn.setForeground( new Color(255,255,255));
         savebtn.setFont(new Font("Arial", Font.BOLD,20));
+        savebtn.setBackground( new Color(0,139,69));
         savebtn.addActionListener(this);
        
-        sairbtn.setBounds(410,380,100,50);
-        sairbtn.setForeground( new Color(0,0,139));
+        sairbtn.setBounds(650,550,150,50);
+        sairbtn.setForeground( new Color(255,255,255));
+        sairbtn.setBackground( new Color(0,255,0));
         sairbtn.setFont(new Font("Arial", Font.BOLD,20));
         sairbtn.addActionListener(this);
     }
